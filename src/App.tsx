@@ -1,4 +1,5 @@
 import "./App.css";
+import Account from "./components/state/Account";
 // import TaskHeader from "./components/TaskHeader";
 // import User from "./components/User";
 // import TaskList from "./components/props/TaskList";
@@ -16,6 +17,7 @@ function App() {
           { id: 3, title: "Write unit tests", completed: false },
         ]}
       /> */}
+      <Account containerStyles="p-6 bg-gray-200 shadow rounded-md max-w-md mx-auto mb-10" />
       <NoteList />
     </>
   );
