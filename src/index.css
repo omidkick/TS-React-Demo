@@ -1,15 +1,10 @@
 @import "tailwindcss";
 
-/* =========================================
-   MASTER DESIGN SYSTEM
-   Fully professional, clean, scalable UI styles for your project
-========================================= */
-
 /* ------------------------------
    Root Variables
 ------------------------------ */
 :root {
-  /* Colors */
+  /* Light Mode Colors */
   --color-primary: #6366f1;
   --color-primary-dark: #4f46e5;
   --color-primary-light: #818cf8;
@@ -57,6 +52,43 @@
 }
 
 /* ------------------------------
+   Dark Mode Variables
+------------------------------ */
+.dark-mode {
+  --color-bg: #0f1419;
+  --color-surface: #1a1f2e;
+  --color-border: #2d3748;
+  --color-text: #e2e8f0;
+  --color-text-light: #94a3b8;
+
+  /* Keep brand colors but adjust if needed */
+  --color-primary: #818cf8;
+  --color-primary-dark: #6366f1;
+  --color-primary-light: #a5b4fc;
+
+  --color-secondary: #94a3b8;
+  --color-secondary-dark: #64748b;
+  --color-secondary-light: #cbd5e1;
+
+  /* Adjust shadows for dark mode */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+
+/* ------------------------------
+   Light Mode Variables (explicit)
+------------------------------ */
+.light-mode {
+  /* Use the default light mode variables */
+  --color-bg: #f2f3f5;
+  --color-surface: #ffffff;
+  --color-border: #e5e7eb;
+  --color-text: #1f2937;
+  --color-text-light: #6b7280;
+}
+
+/* ------------------------------
    Base Styles
 ------------------------------ */
 html,
@@ -67,15 +99,17 @@ body {
   line-height: 1.5;
   background: var(--color-bg);
   color: var(--color-text);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 * {
   box-sizing: border-box;
 }
+
 img {
   max-width: 100%;
   display: block;
 }
-
 /* ------------------------------
    Buttons
 ------------------------------ */
@@ -354,4 +388,174 @@ select:focus {
 }
 .h-full {
   height: 100%;
+}
+
+.main-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: 0 24px;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 64px;
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+}
+
+.brand-text {
+  font-size: 24px;
+  font-weight: 700;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-light)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin: 0;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--color-text-light);
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.nav-link:hover {
+  color: var(--color-primary);
+  background: var(--color-bg);
+}
+
+.nav-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.action-btn {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 8px;
+  border-radius: var(--radius-md);
+  color: var(--color-text-light);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.action-btn:hover {
+  color: var(--color-primary);
+  background: var(--color-bg);
+}
+
+.action-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.notification-badge {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--color-danger);
+  color: white;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: var(--radius-lg);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.user-profile:hover {
+  background: var(--color-bg);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-border);
+}
+
+.user-name {
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .main-header {
+    padding: 0 16px;
+  }
+
+  .header-nav span,
+  .user-name {
+    display: none;
+  }
+
+  .header-nav {
+    gap: 16px;
+  }
+
+  .brand-text {
+    font-size: 20px;
+  }
+}
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  min-height: calc(100vh - 64px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-content {
+    padding: 24px 16px;
+  }
 }

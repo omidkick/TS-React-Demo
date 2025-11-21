@@ -13,8 +13,17 @@ export default defineConfig([
       js.configs.recommended,
       tseslint.configs.recommended,
       reactHooks.configs.flat.recommended,
-      reactRefresh.configs.vite,
     ],
+    plugins: {
+      'react-refresh': reactRefresh,
+    },
+    rules: {
+      ...reactRefresh.configs.vite.rules,
+      'react-refresh/only-export-components': [
+        'warn',
+        { allowConstantExport: true, allowExportNames: ['useDarkMode'] }
+      ],
+    },
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
