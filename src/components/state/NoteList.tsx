@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { HiPlus } from "react-icons/hi";
 
 const NoteList: React.FC = () => {
   const [note, setNote] = useState("");
   const [notes, setNotes] = useState<string[]>([]);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   // submit event
   const handleAddNote = (e: React.FormEvent<HTMLFormElement>) => {
@@ -20,6 +21,17 @@ const NoteList: React.FC = () => {
     setNote(e.target.value);
   };
 
+  useEffect(() => {
+    // 1. optional chaining:
+    // inputRef.current?.focus();
+
+    // type guard :
+    if (!inputRef.current) {
+      return;
+    }
+    inputRef.current.focus();
+  }, []);
+
   return (
     <div className="w-full min-h-screen bg-gray-100 flex flex-col items-center py-10 px-4">
       <h1 className="text-3xl font-bold text-purple-700 mb-6">Note List</h1>
@@ -31,6 +43,7 @@ const NoteList: React.FC = () => {
         >
           <input
             type="text"
+            ref={inputRef}
             value={note}
             onChange={handelChange}
             placeholder="Write a note..."
