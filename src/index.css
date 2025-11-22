@@ -276,9 +276,9 @@ img {
   text-align: center;
   transition: transform 0.2s ease;
 }
-.counter-card:hover {
+/* .counter-card:hover {
   transform: translateY(-3px);
-}
+} */
 
 .card-header {
   font-size: 20px;

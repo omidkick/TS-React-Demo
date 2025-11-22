@@ -35,7 +35,7 @@ export default function CounterTS() {
 
   return (
     <div className="counter-card">
-      <h2 className="font-bold text-lg mb-md text-gray-800">Smart Counter</h2>
+      <h2 className="font-bold text-lg mb-md text-primary">Smart Counter</h2>
 
       {/* Counter Value */}
       <div className="counter-value">{state.count}</div>

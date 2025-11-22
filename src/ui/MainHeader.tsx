@@ -8,7 +8,7 @@ const MainHeader: React.FC = () => {
       <div className="header-container">
         {/* Logo/Brand */}
         <div className="header-brand">
-          <h1 className="brand-text">YourApp</h1>
+          <h1 className="brand-text">TSCours</h1>
         </div>
 
         {/* Navigation */}
