@@ -2,6 +2,7 @@ import "./App.css";
 import { Private } from "./components/componentProps/Private";
 import { Profile } from "./components/componentProps/Profile";
 import List from "./components/generics/List";
+import WrappingHTMLElements from "./components/HTMLprops/WrappingHTMLElements";
 import Counter from "./components/state/Counter";
 import DarkModeProvider from "./context/DarkModeContext";
 import UserContextProvider from "./context/UserContext";
@@ -21,6 +22,7 @@ function App() {
             />
 
             <Private isLoggedIn={true} Component={Profile} />
+            <WrappingHTMLElements />
           </main>
         </UserContextProvider>
       </DarkModeProvider>
