@@ -12,6 +12,7 @@ function List<T extends { id: number; name: string }>({
   return (
     <div className="">
       <h2>List Of Items</h2>
+      <p>this is from Bug</p>
       <div>
         {items.map((item) => {
           return (
