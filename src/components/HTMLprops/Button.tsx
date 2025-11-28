@@ -1,31 +1,38 @@
-import type { ComponentProps } from "react";
-import { useState } from "react";
+import React from "react";
+import MiniLoading from "../../ui/MiniLoading";
 
-const Button = ({ className, children, ...rest }: ComponentProps<"button">) => {
-  const [pressed, setPressed] = useState(false);
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+  variant?: "primary" | "secondary" | "outline" | "danger";
+  loading?: boolean;
+  loadingColor?: string;
+  className?: string;
+};
 
-  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    setPressed(true);
-    setTimeout(() => setPressed(false), 150); 
+const btnType = {
+  primary: "btn--primary",
+  secondary: "btn--secondary",
+  outline: "btn--outline",
+  danger: "btn--danger",
+} as const;
 
-    if (rest.onClick) rest.onClick(e);
-  };
-
+const Button: React.FC<ButtonProps> = ({
+  children,
+  onClick,
+  variant = "primary",
+  className = "",
+  disabled = false,
+  loading = false,
+  loadingColor = "#ffffff",
+  ...rest
+}) => {
   return (
     <button
-      className={`
-        border border-purple-700 
-        rounded-md 
-        p-2 
-        transition-all 
-        duration-150 
-        ${pressed ? "scale-95" : "scale-100"} 
-        ${className}
-      `}
-      onClick={handleClick}
+      onClick={onClick}
+      className={`btn ${btnType[variant]} ${className}`}
+      disabled={disabled || loading}
       {...rest}
     >
-      {children}
+      {loading ? <MiniLoading color={loadingColor} /> : children}
     </button>
   );
 };
