@@ -1,5 +1,5 @@
 import React from "react";
-import MiniLoading from "./MiniLoading";
+import MiniLoading from "../../ui/MiniLoading";
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary" | "outline" | "danger";
