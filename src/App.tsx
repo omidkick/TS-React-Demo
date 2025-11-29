@@ -1,5 +1,6 @@
 import "./App.css";
-import ShapeSelector from "./components/challeng1/ShapeSelector";
+import ShapeSelector from "./components/challenge--1/ShapeSelector";
+import Accordion from "./components/challenge--2/Accordion";
 import { Private } from "./components/componentProps/Private";
 import { Profile } from "./components/componentProps/Profile";
 import List from "./components/generics/List";
@@ -27,6 +28,8 @@ function App() {
             <WrappingHTMLElements />
             <ExampleTable />
             <ShapeSelector />
+
+            <Accordion expanded/>
           </main>
         </UserContextProvider>
       </DarkModeProvider>
