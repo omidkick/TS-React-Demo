@@ -1,4 +1,5 @@
 import "./App.css";
+import ShapeSelector from "./components/challeng1/ShapeSelector";
 import { Private } from "./components/componentProps/Private";
 import { Profile } from "./components/componentProps/Profile";
 import List from "./components/generics/List";
@@ -24,7 +25,8 @@ function App() {
 
             <Private isLoggedIn={true} Component={Profile} />
             <WrappingHTMLElements />
-            <ExampleTable/>
+            <ExampleTable />
+            <ShapeSelector />
           </main>
         </UserContextProvider>
       </DarkModeProvider>
