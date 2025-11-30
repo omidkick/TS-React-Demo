@@ -8,6 +8,7 @@ import List from "./components/generics/List";
 import ExampleTable from "./components/HTMLprops/ExampleTable";
 import WrappingHTMLElements from "./components/HTMLprops/WrappingHTMLElements";
 import Counter from "./components/state/Counter";
+import UserCard from "./components/utilityType/UserCard";
 import DarkModeProvider from "./context/DarkModeContext";
 import UserContextProvider from "./context/UserContext";
 import MainHeader from "./ui/MainHeader";
@@ -30,10 +31,26 @@ function App() {
             <ExampleTable />
             <ShapeSelector />
 
-            <Accordion expanded/>
+            <Accordion expanded />
 
             {/* <Panel/> */}
             <Panel collapsable defaultCollapsed />
+
+            <UserCard
+              mode="preview"
+              user={{ avatarUrl: "/images/avatar.PNG", name: "Omid" }}
+            />
+            {/* 
+            <UserCard
+              mode="full"
+              user={{
+                name: "Omid",
+                email: "omid@gmail.com",
+                role: "admin",
+                avatarUrl: "/images/avatar.PNG",
+                // id: 1,
+              }}
+            /> */}
           </main>
         </UserContextProvider>
       </DarkModeProvider>
