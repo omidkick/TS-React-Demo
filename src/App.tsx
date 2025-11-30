@@ -40,7 +40,7 @@ function App() {
               mode="preview"
               user={{ avatarUrl: "/images/avatar.PNG", name: "Omid" }}
             />
-            {/* 
+
             <UserCard
               mode="full"
               user={{
@@ -49,8 +49,9 @@ function App() {
                 role: "admin",
                 avatarUrl: "/images/avatar.PNG",
                 // id: 1,
+                age: 30,
               }}
-            /> */}
+            />
           </main>
         </UserContextProvider>
       </DarkModeProvider>

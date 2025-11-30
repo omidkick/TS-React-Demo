@@ -6,6 +6,7 @@ type User = {
   email: string;
   role: "admin" | "user";
   avatarUrl: string;
+  age: number;
 };
 
 type UserCardPreview = {
@@ -37,9 +38,9 @@ const UserCard: React.FC<UserCardProps> = (props) => {
       </div>
     );
   } else {
-    const { name, email, role, avatarUrl } = props.user;
+    const { name, email, role, avatarUrl, age } = props.user;
     return (
-      <div className={`${commonClasses} bg-surface`}>
+      <div className={`${commonClasses} bg-surface mt-10`}>
         <img
           src={avatarUrl}
           alt={`${name}'s avatar`}
@@ -47,13 +48,17 @@ const UserCard: React.FC<UserCardProps> = (props) => {
         />
         <h3 className="text-xl font-bold text-dark">{name}</h3>
         <p className="text-sm text-light">{email}</p>
-        <span
-          className={`badge ${
-            role === "admin" ? "badge-danger" : "badge-primary"
-          }`}
-        >
-          {role.toUpperCase()}
-        </span>
+        <div className="flex items-center justify-between gap-4 mt-2">
+          <span
+            className={`badge ${
+              role === "admin" ? "badge-danger" : "badge-primary"
+            }`}
+          >
+            {role.toUpperCase()}
+          </span>
+
+          <span className="badge badge-secondary">{age}</span>
+        </div>
       </div>
     );
   }
