@@ -2,6 +2,7 @@ import "./App.css";
 import ShapeSelector from "./components/challenge--1/ShapeSelector";
 import Accordion from "./components/challenge--2/Accordion";
 import Panel from "./components/challenge--3/Panel";
+import CategorySelector from "./components/challenge--4/CategorySelector";
 import { Private } from "./components/componentProps/Private";
 import { Profile } from "./components/componentProps/Profile";
 import List from "./components/generics/List";
@@ -40,7 +41,7 @@ function App() {
               mode="preview"
               user={{ avatarUrl: "/images/avatar.PNG", name: "Omid" }}
             />
-            {/* 
+
             <UserCard
               mode="full"
               user={{
@@ -49,8 +50,11 @@ function App() {
                 role: "admin",
                 avatarUrl: "/images/avatar.PNG",
                 // id: 1,
+                age: 30,
               }}
-            /> */}
+            />
+
+            <CategorySelector />
           </main>
         </UserContextProvider>
       </DarkModeProvider>
