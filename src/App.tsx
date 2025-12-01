@@ -12,6 +12,7 @@ import Counter from "./components/state/Counter";
 import UserCard from "./components/utilityType/UserCard";
 import DarkModeProvider from "./context/DarkModeContext";
 import UserContextProvider from "./context/UserContext";
+import Button from "./ui/Button";
 import MainHeader from "./ui/MainHeader";
 
 function App() {
@@ -55,6 +56,20 @@ function App() {
             />
 
             <CategorySelector />
+            
+            <div className="my-10 flex items-center justify-center gap-10">
+              <Button variant="primary" onClick={() => alert("Primary!")}>
+                Click Me
+              </Button>
+
+              <Button variant="secondary" onClick={() => alert("Secondary!")}>
+                Secondary
+              </Button>
+
+              <Button variant="link" href="http://localhost:5173/">
+                Go to Google
+              </Button>
+            </div>
           </main>
         </UserContextProvider>
       </DarkModeProvider>
